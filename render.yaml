@@ -1,9 +1,8 @@
 services:
-- type: web
-  name: inocencio
-  env: docker
-  buildCommand: docker-compose build # docker-compose -f compose.yaml up --build
-  startCommand: docker-compose up
+  - type: web
+    name: inocencio
+    env: docker
+    buildCommand:  "docker-compose -f compose.yaml up --build"
  # envVars:
  # - key: DATABASE_URL
   #  fromDatabase:
