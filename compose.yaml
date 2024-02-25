@@ -22,8 +22,6 @@ services:
       SPRING_DATASOURCE_USERNAME: inoce
       SPRING_DATASOURCE_PASSWORD: samsu
       SPRING_DATASOURCE_URL: jdbc:mysql://mytaier:3306/mytaier?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      SPRING_JPA_HUBERNATE_DDL-AUTO: update
-      SPRING_JPA_HUBERNATE_DIALECT: org.hibernate.dialect.MySQL8Dialect
     ports:
       - "8080:8080"   
     networks:
