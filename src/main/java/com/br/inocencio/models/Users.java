@@ -23,7 +23,7 @@ public class Users {
 
     private String pic;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("user")
     private List<Posts> posts;
 
