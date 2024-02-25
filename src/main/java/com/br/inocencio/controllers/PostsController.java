@@ -3,6 +3,7 @@ package com.br.inocencio.controllers;
 import com.br.inocencio.models.Posts;
 import com.br.inocencio.repositories.PostsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,7 @@ public class PostsController {
 
     @PostMapping
     public ResponseEntity<Posts> publish (@RequestBody Posts post){
-        return ResponseEntity.status(201).body(repository.save(post));
+        return ResponseEntity.status(HttpStatus.OK).body(repository.save(post));
     }
 
     @PutMapping
