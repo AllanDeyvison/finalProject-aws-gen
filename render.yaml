@@ -1,23 +1,23 @@
   
-envVarGroups:
-  - name: mysql 
-    envVars:
-    - key: DATABASE_URL
-      fromDatabase:
-        name: inocepublish
-        property: connectionString
-    - key: MYSQL_USER
-      value: inoce
-    - key: MYSQL_PASSWORD
-      generateValue: true
-    - key: MYSQL_DATABASE
-      value: publish
-
-services:
-  - type: web
-    name: inocencio
-    dockerfilePath: Dockerfile
-    buildCommand: "docker build -t inocencio ."
-    startCommand: "docker run -d -p  8080:8080 --name inocencio inocencio"
-    envVars:
-      - fromGroup: mysql
+#envVarGroups:
+#  - name: mysql
+#    envVars:
+#    - key: DATABASE_URL
+#      fromDatabase:
+#        name: inocepublish
+#        property: connectionString
+#    - key: MYSQL_USER
+#      value: inoce
+#    - key: MYSQL_PASSWORD
+#      generateValue: true
+#    - key: MYSQL_DATABASE
+#      value: publish
+#
+#services:
+#  - type: web
+#    name: inocencio
+#    dockerfilePath: Dockerfile
+#    buildCommand: "docker build -t inocencio ."
+#    startCommand: "docker run -d -p  8080:8080 --name inocencio inocencio"
+#    envVars:
+#      - fromGroup: mysql
