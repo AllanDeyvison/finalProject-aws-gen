@@ -24,12 +24,12 @@ public class Posts {
 
     @ManyToOne
     @NotNull
-    @JsonIgnoreProperties("post")
+    @JsonIgnoreProperties("posts")
     private Users user;
 
     @ManyToOne
     @NotNull
-    @JsonIgnoreProperties("post")
+    @JsonIgnoreProperties("posts")
     private Themes theme;
 
     public Posts() {

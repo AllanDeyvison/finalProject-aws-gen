@@ -2,6 +2,7 @@ package com.br.inocencio.controllers;
 
 import com.br.inocencio.models.Posts;
 import com.br.inocencio.repositories.PostsRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,12 +30,12 @@ public class PostsController {
     }
 
     @PostMapping
-    public ResponseEntity<Posts> publish (@RequestBody Posts post){
+    public ResponseEntity<Posts> publish (@Valid @RequestBody Posts post){
         return ResponseEntity.status(HttpStatus.OK).body(repository.save(post));
     }
 
     @PutMapping
-    public ResponseEntity<Posts> change (@RequestBody Posts post){
+    public ResponseEntity<Posts> change (@Valid @RequestBody Posts post){
         return ResponseEntity.status(200).body(repository.save(post));
     }
 

@@ -3,6 +3,7 @@ package com.br.inocencio.controllers;
 import com.br.inocencio.models.Users;
 import com.br.inocencio.repositories.UsersRepository;
 import com.br.inocencio.services.RulesService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -35,21 +36,21 @@ public class UsersController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Users> getById(@PathVariable Integer id) {
+    public ResponseEntity<Users> getById( @PathVariable Integer id) {
 
         return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(
                 ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<Users> submit(@RequestBody  Users users){
+    public ResponseEntity<Users> submit(@Valid @RequestBody  Users users){
         return service.existingUser(users)
                 .map(existing -> ResponseEntity.ok(existing))
                 .orElse(ResponseEntity.status(406).build());
     }
 
     @PutMapping
-    public ResponseEntity<Users> change(@RequestBody Users users){
+    public ResponseEntity<Users> change(@Valid @RequestBody Users users){
         return ResponseEntity.status(201).body(repository.save(users));
     }
 

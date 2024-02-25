@@ -2,6 +2,7 @@ package com.br.inocencio.controllers;
 
 import com.br.inocencio.models.Themes;
 import com.br.inocencio.repositories.ThemesRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,12 +29,12 @@ public class ThemesController {
     }
 
     @PostMapping
-    public ResponseEntity<Themes> publish(@RequestBody Themes themes){
+    public ResponseEntity<Themes> publish(@Valid @RequestBody Themes themes){
         return ResponseEntity.status(201).body(repository.save(themes));
     }
 
     @PutMapping
-    public ResponseEntity<Themes> edit(@RequestBody Themes themes){
+    public ResponseEntity<Themes> edit(@Valid @RequestBody Themes themes){
         return ResponseEntity.status(201).body(repository.save(themes));
     }
 
