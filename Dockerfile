@@ -1,3 +1,4 @@
+
 FROM maven:latest AS build 
 
 WORKDIR /inocencio
@@ -14,3 +15,6 @@ WORKDIR /inocencio
 COPY --from=build /inocencio/target/inocencio-0.0.1-SNAPSHOT.jar ./
 
 CMD [ "java", "-jar", "inocencio-0.0.1-SNAPSHOT.jar" ]
+
+
+

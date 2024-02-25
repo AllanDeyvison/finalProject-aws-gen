@@ -1,11 +1,30 @@
+databases:
+  - name: inocepublish
+    engine: mysql
+    plan: free
+    region: us-east
+    credentials:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: inocepublish
+          property: connectionString
+      - key: MYSQL_USER
+        value: inoce
+      - key: MYSQL_PASSWORD
+        generateValue: true
+      - key: MYSQL_DATABASE
+        value: publish
+
 services:
   - type: web
     name: inocencio
-    env: docker
-    buildCommand:  "docker-compose -f compose.yaml up --build"
- # envVars:
- # - key: DATABASE_URL
-  #  fromDatabase:
-   #   name: my-database
-    #  property: connectionString
-
+    dockerfilePath: Dockerfile
+    buildCommand: "docker build -t inocencio ."
+    startCommand: "docker run -d -p  8080:8080 --name inocencio inocencio"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: inocepublish
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
