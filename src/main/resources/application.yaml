@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mytaier:3306/mytaier?createDatabaseIfNotExist=true&serverTimezone=UTC&useServerPrepStmts=false&allowPublicKeyRetrieval=true
+    #url:  jdbc:mysql://localhost:3306/publish?createDatabaseIfNotExist=true&serverTimezone=UTC&useSSI=false
+    username: inoce
+    password: samsu
+
+  jpa:
+     hibernate:
+       ddl-auto: update
+       dialect: org.hibernate.dialect.MySQL8Dialect
